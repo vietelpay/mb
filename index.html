@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>VN Loan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* desktop only */
+@media only screen and (min-width:748px) {
+.hide-if-desktop {
+    display: none;
+}
+}
+
+/* mobile, table only */
+@media only screen and (max-width:788px) {
+.hide-if-mobile {
+    display: none;
+}
+}
+
+/* medium size */
+@media only screen and (max-width:588px) {
+}
+
+/* mobile only */
+@media only screen and (max-width:395px) {
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<p class="hide-if-mobile" style="text-align: center;">Thiết bị của bạn không phù hợp</p>
+<div class="hide-if-desktop">
+    <iframe src="about:blank" id="vnloan_iframe" frameborder="0" width="100%" height="667"></iframe>
+</div>
+<script>
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function vnloan_height_iframe() {
+    $('#vnloan_iframe').attr({
+        height: Math.ceil($(window).height()) - 1
+    });
+}
+vnloan_height_iframe();
+
+//
+$(window).resize(function () {
+    vnloan_height_iframe();
+});
+
+//
+var go_to_domain = localStorage.getItem('go_to_random_domain');
+if (go_to_domain === null) {
+    go_to_domain = randomIntFromInterval(1, 9);
+    localStorage.setItem('go_to_random_domain', go_to_domain);
+}
+
+//
+$(document).ready(function () {
+    $('#vnloan_iframe').attr({
+        src: 'https://www' + go_to_domain + '.vaytinchap89.com/'
+    });
+});
+</script>
+<noscript>
+Your browser does not support JavaScript!
+</noscript>
+</body>
+</html>
