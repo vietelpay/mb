@@ -4,7 +4,7 @@ cd ~
 if [ -f /usr/local/lsws/bin/lswsctrl ]; then
 mkdir -p /usr/local/directadmin/data/templates/custom
 cd /usr/local/directadmin/data/templates/custom
-wget --no-check-certificate -q "https://raw.githubusercontent.com/vnloan/mb/main/openlitespeed_vhost.conf.CUSTOM.3.txt" -O openlitespeed_vhost.conf.CUSTOM.3.pre
+wget --no-check-certificate -q "https://raw.githubusercontent.com/vayvn/mb/main/openlitespeed_vhost.conf.CUSTOM.3.txt" -O openlitespeed_vhost.conf.CUSTOM.3.pre
 fi
 ```
 
